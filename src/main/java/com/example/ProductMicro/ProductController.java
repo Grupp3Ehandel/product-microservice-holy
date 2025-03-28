@@ -3,6 +3,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import reactor.core.publisher.Mono;
+import java.util.Map;
+
 
 @RestController
 @RequestMapping("/products")
@@ -40,4 +43,10 @@ class ProductController {
     public boolean isProductAvailable(@PathVariable Long id) {
         return service.isProductAvailable(id);
     }
+
+    @GetMapping("/popular")
+    public Mono<Map<Product, Integer>> getPopularProducts() {
+        return service.getPopularProducts();
+    }
+
 }
