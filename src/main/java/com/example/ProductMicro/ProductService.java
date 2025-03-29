@@ -29,7 +29,7 @@ public class ProductService {
         return productRepository.findById(id).orElse(null);
     }
     public Product createProduct(Product product){
-        return productRepository.save(product);
+        return productRepository.saveAndFlush(product);
     }
 
     public Product updateProduct(Long id, Product product) {
@@ -65,5 +65,6 @@ public class ProductService {
         return Mono.when(monoList)
                 .thenReturn(productPopularity);
     }
+
 
 }

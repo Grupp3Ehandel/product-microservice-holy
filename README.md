@@ -44,11 +44,11 @@ Before running the application, set the environment variable for the OrderMicroS
 
 #### Windows (Command Prompt)
 ```sh
-set WEB_CLIENT_URL=http://ordermicro-env.eba-ha662mef.eu-north-1.elasticbeanstalk.com
+set WEB_CLIENT_URL=http://order-service-env.abc123.eu-north-1.elasticbeanstalk.com
 ```
 #### macOS/Linux
 ```sh
-export WEB_CLIENT_URL=http://ordermicro-env.eba-ha662mef.eu-north-1.elasticbeanstalk.com
+export WEB_CLIENT_URL=http://order-service-env.abc123.eu-north-1.elasticbeanstalk.com
 ```
 
 Alternatively, add it to `application.properties`:
