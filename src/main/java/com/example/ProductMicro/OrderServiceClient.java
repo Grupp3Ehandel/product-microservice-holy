@@ -1,6 +1,7 @@
 package com.example.ProductMicro;
 
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -9,8 +10,8 @@ import reactor.core.publisher.Mono;
 public class OrderServiceClient {
     private final WebClient webClient;
 
-    public OrderServiceClient(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.baseUrl("http://order-service-env.abc123.eu-north-1.elasticbeanstalk.com").build();
+    public OrderServiceClient(WebClient.Builder webClientBuilder, @Value("${webclient.url}") String webClientUrl) {
+        this.webClient = webClientBuilder.baseUrl(webClientUrl).build();
     }
 
     public Mono<Integer> getOrderCountByProductId(Long productId) {
@@ -20,4 +21,5 @@ public class OrderServiceClient {
                 .bodyToMono(Integer.class);
     }
 }
+
 
